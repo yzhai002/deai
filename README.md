@@ -76,6 +76,20 @@ When you paste text, Humanizer shows its work: the first rewrite, a short critiq
 
 Humanizer makes text read better. It does not defeat AI detectors. A blind study of the rewrite pass found that judges preferred the rewrite every time, while detector scores barely moved, because detectors measure statistical patterns across the whole text, not the surface tells listed here. Use Humanizer to make a draft read like a person wrote it. Use a different tool if your goal is to pass a detector.
 
+## Checks
+
+`scripts/evaluate.py` checks a rewrite against the tells a script can see: machine fingerprints, dashes, the stock vocabulary and watched phrases, uniform sentence runs, and numbers lost from the source. It cannot judge meaning or voice, so it is a gate, not a review.
+
+```bash
+python3 scripts/evaluate.py draft.md rewritten.md
+```
+
+The `eval/cases/` folder holds pairs of an input and its rewrite. This command checks that every rewrite in it still passes:
+
+```bash
+python3 scripts/evaluate.py --all
+```
+
 ## The 27 patterns
 
 The patterns are numbered by strength and frequency. The first five justify an edit on a single sighting. Patterns marked *weak alone* count only when several tells share a passage, because a careful writer may use any one of them on purpose.
@@ -173,6 +187,7 @@ The writer supplied these notes with the draft, so the rewrite can use them: the
 <details>
 <summary>Show release notes</summary>
 
+- **3.1.1** - Added `scripts/evaluate.py` and the `eval/cases/` corpus: a deterministic gate that checks a rewrite for machine fingerprints, dashes, the stock vocabulary and watched phrases, uniform sentence runs, and numbers lost from the source. CI runs it on every push. Tooling only; no change to the 27 patterns.
 - **3.1.0** - Added pattern #7 for uniform sentence length and shape: a run of evenly long sentences, same-size paragraphs, or one-clause sentences throughout. This tell grows when lexical tells are removed, because a subtractive rewrite leaves evenly shaped prose, and even shape reads as machine-made. The final check now lists it among the tells that survive a rewrite, and the rewrite guidance bars adding a punchy closer or an aphorism to seem human. Renumbered the old patterns 7 through 26 to 8 through 27: 7→8, 8→9, 9→10, 10→11, 11→12, 12→13, 13→14, 14→15, 15→16, 16→17, 17→18, 18→19, 19→20, 20→21, 21→22, 22→23, 23→24, 24→25, 25→26, 26→27.
 - **3.0.1** - Added pattern #26 for machine fingerprints from the source model: citation artifacts such as `[cite: 1]` and `oaicite`, links with tracking parameters, and invisible Unicode characters. Added "that distinction matters" to §3 and "it's worth noting" to §4 (fixes #277). Fixed the voice rule's section reference, which pointed at the wrong pattern for the dash rule (fixes #273). Stated in the README that Humanizer improves how text reads and does not defeat AI detectors (#229).
 - **3.0.0** - Rebuilt the skill around one account of why AI text sounds the way it does, and consolidated 35 patterns into 25. Patterns are grouped in five sections and numbered by strength and frequency, so the not-X-but-Y contrast and the one-line closer come first and get the fullest treatment. Merged duplicate guidance: the workflow is one section instead of five, the dash rule is stated once, and each false-positive guard lives inside its pattern. Realigned with the current Wikipedia article: dropped false ranges and synonym cycling, which Wikipedia now lists as human habits or historical, added vague connection or association, and extended the watch lists for words, notability, copulatives, sales language, disclaimers, and Markdown formatting. Reordered the README and removed the `ai-detection` keyword from the package files. Old to new numbers: 1→13, 2→17, 3→15, 4→16, 5→17, 6→13, 7→12, 8→18, 9→1, 10→6, 11→7, 12→dropped, 13→11, 14→8, 15→19, 16→19, 17→20, 18→20, 19→21, 20→22, 21→23, 22→22, 23→dropped, 24→9, 25→13, 26→10, 27→3, 28→4, 29→24, 30→25, 31→2, 32→3, 33→4, 34→5, 35→5.

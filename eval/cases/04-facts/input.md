@@ -1,0 +1,1 @@
+The Statistical Institute of Catalonia was officially established in 1989 with 40 staff across 3 offices, marking a pivotal moment in the evolution of regional statistics in Spain. Experts believe it played a crucial role in enhancing regional governance.

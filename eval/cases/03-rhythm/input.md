@@ -1,0 +1,1 @@
+The pipeline runs the tests first. The tests build a clean container. The container moves to staging next. Staging holds it for two hours. Two hours let the alerts settle. The alerts then clear the release.

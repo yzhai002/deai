@@ -8,7 +8,7 @@ description: |
   Wikipedia's "Signs of AI writing."
 license: MIT
 metadata:
-  version: "3.1.0"
+  version: "3.1.1"
 ---
 
 # Humanizer: remove AI writing patterns

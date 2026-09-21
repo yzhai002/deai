@@ -16,16 +16,18 @@ Keep the skill portable. Do not write instructions that limit it to one or two a
 - `.claude-plugin/marketplace.json` lets users add this repo as a Claude marketplace.
 - `agents/openai.yaml` holds the display name, short description, and default prompt for OpenAI-compatible agents.
 - `scripts/validate-package.py` checks package files and shared values.
+- `scripts/evaluate.py` checks a rewrite against the tells a script can see: fingerprints, dashes, stock vocabulary, uniform sentence runs, and numbers lost from the source.
+- `eval/cases/` holds the eval corpus: one folder per case, with `input.md` and `rewrite.md`.
 
 ## Rules for changes
 
 Keep `SKILL.md` and `README.md` in sync.
 
-- **Patterns:** Patterns are numbered from 1 without gaps, strongest and most frequent first. A new tell earns a pattern only when no existing pattern already implies it; prefer folding it into an existing pattern. If you add, remove, or renumber a pattern, update the README tables, the README section title, and every §reference. The validator derives the count from the headings.
+- **Patterns:** Patterns are numbered from 1 without gaps, strongest and most frequent first. A new tell earns a pattern only when no existing pattern already implies it; prefer folding it into an existing pattern. If you add, remove, or renumber a pattern, update the README tables, the README section title, and every §reference. The validator derives the count from the headings. Add a case in `eval/cases/` for any new pattern a script can check.
 - **Version:** Keep the same version in `SKILL.md` under `metadata.version`, the first README version entry, and `.claude-plugin/plugin.json`. Do not add a top-level `version` field to the skill.
 - **Compatibility:** Keep install and use instructions neutral across agents. Names such as Claude Code, OpenCode, and Codex are examples, not limits.
 - **History:** Add a short README version note for any behavior change or non-obvious fix.
-- **Checks:** Before publishing, run `python3 scripts/validate-package.py`, `npx skills add . --list`, and `claude plugin validate .`.
+- **Checks:** Before publishing, run `python3 scripts/validate-package.py`, `python3 scripts/evaluate.py --all`, `npx skills add . --list`, and `claude plugin validate .`.
 
 ## Writing style
 
