@@ -166,6 +166,7 @@ The writer supplied these notes with the draft, so the rewrite can use them: the
 
 - [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) is the source for the pattern list.
 - [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup) maintains the page.
+- Built on [blader/humanizer](https://github.com/blader/humanizer), MIT licensed. This repo's 3.1.0 extends upstream 3.0.0; the version history records every change.
 
 ## Version history
 
