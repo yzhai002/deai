@@ -4,6 +4,8 @@
 
 Humanizer rewrites AI-sounding text so it reads like a person wrote it, without changing what it says. Because it is just Markdown, it works with any agent that supports skills.
 
+简体中文版：[deai-zh](https://github.com/yzhai002/deai-zh) removes the same tells from Chinese prose, with localized watch lists and examples.
+
 ## Installation
 
 Install Humanizer with the Skills CLI:
