@@ -1,0 +1,1 @@
+The system clears the cache overnight. The clearing process takes ten minutes. Services keep responding during the window. Response latency stays nearly flat. Monitoring metrics remain stable throughout. Operators do not need to attend. Alerts resolve themselves without intervention. Results land in the daily log.

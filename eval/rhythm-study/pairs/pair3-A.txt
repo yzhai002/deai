@@ -1,0 +1,1 @@
+Orders land in a pending queue. The queue sorts by arrival time. A scanner sweeps the queue each minute. Valid orders go to the nearest warehouse. The warehouse packs them within two hours. Parcels pass to the courier company. The courier ships them out that night. Customers receive the goods next day.
